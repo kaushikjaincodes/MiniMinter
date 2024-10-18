@@ -146,7 +146,7 @@ const PhotoUpload = ({ selectedTheme }) => {
                         templateCoords.x2 - templateCoords.x1, 
                         templateCoords.y2 - templateCoords.y1);
           
-          const compressedBase64 = canvas.toDataURL('image/jpeg', 0.7); 
+          const compressedBase64 = canvas.toDataURL('image/png', 0.8); 
           setFinalBase64(compressedBase64);
           imageToUrl(compressedBase64);
         };
@@ -173,6 +173,8 @@ const PhotoUpload = ({ selectedTheme }) => {
       
       const { imageUrl } = response.data;
       setFinalImgUrl(imageUrl);
+      setShowConfirmation(true);
+
       const secondResponse = await axios.post('https://nft-mint-back.vercel.app/api/v1/mint/NFT', {
         imageUrl: imageUrl,
         recipientEmail: email
@@ -180,7 +182,7 @@ const PhotoUpload = ({ selectedTheme }) => {
       
       // console.log("Response from second API: ", secondResponse.data);
       
-      setShowConfirmation(true);
+      
     } catch (error) {
       console.error("Error making the API calls: ", error);
     } finally {
