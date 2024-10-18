@@ -4,8 +4,8 @@ import { Instagram, LinkedIn, Twitter } from '@mui/icons-material';
 
 const ConfirmationPage = ({ imageUrl }) => {
   const handleShare = (platform) => {
-    const postText = encodeURIComponent("Created my first NFT through this platform!");
-    const platformUrl = encodeURIComponent("https://yourplatformurl.com");
+    const postText = encodeURIComponent("Created my first NFT through this platform! Do Check it out!!");
+    const platformUrl = encodeURIComponent("https://mini-minter.vercel.app");
     const hashtags = encodeURIComponent("NFT #Blockchain");
 
     switch (platform) {
